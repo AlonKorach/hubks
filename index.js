@@ -41,4 +41,4 @@ function error404(req, res) {
     res.status(404).render('../errors/404.ejs');
 }
 
-app.listen(3000);
+app.listen(process.env.PORT || 3000);
