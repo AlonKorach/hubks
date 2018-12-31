@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset="utf-8">
+            <title>טופס הרשמה למרכז</title>
+            <script src="./formValidating.js"></script>
+        </head>
+        <body>
+            <style>
+                h1 {
+                    text-align: center;
+                }
+                
+                form {
+                    text-align: center;
+                }
+
+                input {
+                    margin: 5px;
+                }
+                div.error {
+                    color: red;
+                    font-weight: bold;
+                }
+        </style>
+    <h1>טופס הרשמה למרכז</h1>
+    <center>
+        <div class="error" id='error1' hidden>
+            הטופס לא מולא כראי!
+        </div>
+
+        <div id="error2" class="error" hidden="hidden">
+            האם השדה טלפון הוקלד כראוי?
+        </div>
+        <form method="POST" name="form" onsubmit="return formValidation();" action="./register" dir="rtl">
+            <label>שם פרטי:</label> <input type="text" name="firstName" required>
+        <br>
+            <label>שם משפחה:</label> <input type="text" name="lastName" required>
+        <br>
+            <label>בית ספר:</label> <input type="text" name="school" required>
+        <br>
+            <label>כיתה: </label> <input type="text" name="class" required>
+        <br>
+            <label>טלפון הורה:</label> <input type="tel" name="parentPhone" required>
+        <br>
+            <label>טלפון נייד:</label> <input type="tel" name="mobilePhone" required>
+        <br>
+            <label>תעודת זהות:</label> <input type="number" name="ID" min="0"> 
+        <br>
+            <input type="submit" value="שלח" name="send"> <input type="reset" value="איפוס" name="reset">
+        </form>
+    </center>
+    </body>
+    </html>    
