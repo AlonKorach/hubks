@@ -16,11 +16,12 @@
                     /*form {
                         text-align: center;
                     }*/
-    
-                    div.error {
+                    span.error {
                         color: red;
-                        font-weight: bold;
+                        margin: 0 .5em;
                         direction: rtl;
+                        width: 100%;
+                        /* line-height: 5pt; */
                     }
             </style>
         </head>
@@ -33,7 +34,7 @@
                     <p class="note">רק כמה פרטים וסיימנו... אפשר לערוך את הפרטים תמיד.</p>
                 </div>
    
-        <div id="error" class="error" hidden>           
+        <div id="error" class="error" >           
         </div>
 
         <main>
@@ -41,11 +42,13 @@
             <section>
                 <div>
                     <label >שם פרטי</label>
-                    <input type="text"id="firstName" name="firstName" >
+                    <input autocomplete="none" type="text"id="firstName" name="firstName" >
+                    <span id="error1" class="error" ></span>
                 </div>
                 <div>
                     <label>שם משפחה</label> 
-                    <input type="text" name="lastName" id = "lastName">
+                    <input autocomplete="off" type="text" name="lastName" id = "lastName">
+                    <span id="error2" class="error"></span>
                 </div>
             </section>
             <section>
@@ -59,38 +62,44 @@
                             <option value="5">י"א</option>
                             <option value="6">י"ב</option>
                     </select>
+                    <span id="error4" class="error"></span>
                 </div>
                 <div class="autocomplete">
                         <label>בית ספר</label>
-                        <input type="text" autocomplete="disabled" name="school" id="school">
+                        <input autocomplete="off" type="text" autocomplete="off" name="school" id="school">
+                        <span id="error3" onclick="noSchool()" class="error"></span>
                     </div>
             </section>
             <section>
                 <div>
                     <label>טלפון נייד <span class="optional">לא חובה</span></label>
-                    <input type="tel" id="parentPhone" name="parentPhone" maxlength="7">
+                    <input autocomplete="off" type="tel" id="phone" name="phone" maxlength="10">
+                    <span id="error5" class="error" ></span>
                 </div>
                 <div>
                     <label>תעודת זהות <span class="optional">לא חובה</span></label> 
-                    <input type="number" id="ID" name="ID" min="0"> 
+                    <input autocomplete="off" type="number" id="ID" name="ID" min="0"> 
+                    <span id="error6" class="error" ></span>
                 </div>
             </section>
             <section>
                 <div>
                     <label>שם הורה</label>
-                    <input type="text" id="parentName" name="parentName"> 
+                    <input autocomplete="off" type="text" id="parentName" name="parentName"> 
+                    <span id="error7" class="error" ></span>
                 </div>
                 <div>        
                     <label>טלפון הורה</label>
-                    <input type="text" type="tel" id="parentPhone" name="parentPhone" maxlength="7">
+                    <input autocomplete="off" type="text" type="tel" id="parentPhone" name="parentPhone" maxlength="10">
+                    <span id="error8" class="error" ></span>
                 </div>
             </section>
 
     <section>
-        <input type="hidden" id="noSchool" value="">
-        <input class="btn" type="submit" value="אל הבר ומעבר לו!" name="send"> 
+        <input autocomplete="off" type="hidden" id="noSchool" value="">
+        <input autocomplete="off" class="btn" type="submit" value="אל הבר ומעבר לו!" name="send"> 
     </section>
-      <!-- <input class = "leftLine4"  type="reset" value="איפוס" name="reset"> -->
+      <!-- <input autocomplete="off" class = "leftLine4"  type="reset" value="איפוס" name="reset"> -->
     
     </form>
 </main>

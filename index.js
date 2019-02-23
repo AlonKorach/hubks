@@ -34,10 +34,15 @@ function indexPage(req, res) {
 }
 
 function doRegister(req, res) {
-    formValidation(req.body.form);
+    let form = req.body;
+    formValidation(form);
+    if (error != null) {
+        res.send(`שגיאה: ${error} <br> נא לחזור לטופס ולתקן בהתאם.`);
+        return;
+    }
     let FBKS = new FB(admin, require('./hubks-b0507-firebase-adminsdk-t8hxc-741d85cc26'), 'hubks-b0507');    
 
-    FBKS.addDBRow('/users', req.body.firstName, req.body.lastName, req.body.school, req.body.class, req.body.parentPhone, req.body.ID, req.body.mobilePhone);
+    FBKS.addDBRow('/users', req.body.firstName, req.body.lastName, req.body.school, req.body.class, req.body.parentPhone, req.body.ID, req.body.phone, req.body.parentName);
     res.redirect('/');
 }
 
@@ -46,15 +51,15 @@ function error404(req, res) {
 }
 
 function formValidation(form) {
-    let firstName       = form.elements.item(0).value;
-    let lastName        = form.elements.item(1).value;
-    let school          = form.elements.item(3).value;
-    let phone           = form.elements.item(5).value;
-    let paretnPhone     = form.elements.item(8).value;
-    let ID              = form.elements.item(7).value;
-    let schoolClass     = form.elements.item(2).value;
-    let paretnName      = form.elements.item(6).value;
-    let noSchool        = form.elements.item(8).value;
+    let firstName       = form.firstName;
+    let lastName        = form.lastName;
+    let school          = form.school;
+    let phone           = form.phone;
+    let paretnPhone     = form.parentPhone;
+    let ID              = form.ID;
+    let schoolClass     = form.schoolClass;
+    let paretnName      = form.paretnName;
+    let noSchool        = form.noSchool;
     if (firstName == "" || lastName == "" || (school == "" && noSchool != "nan") || paretnPhone == "" || phone == "" || ID == "" || schoolClass == "") {
        
         //  first name

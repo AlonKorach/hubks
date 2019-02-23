@@ -7,7 +7,9 @@ class FB {
     constructor(admin, serviceAccount, dbURL){
         this.admin = admin;
         this.serviceAccount = serviceAccount;
-        this.connnect(dbURL);
+        if(!this.admin.apps.length) {
+            this.connnect(dbURL);
+        }
         this.db = this.admin.database();
     }
 
@@ -18,14 +20,19 @@ class FB {
         });
         // console.log(this.app);
     }
-    addDBRow(path, firstName, lastname, school, Class, parentPhone, ID, mobilePhone){
+    addDBRow(path, firstName, lastname, school, Class, parentPhone, ID, mobilePhone, parentName){
         var ref =  this.db.ref("/");
-        var ItemREF = ref.child(path).set({
+        let date = `${new Date().getDate()}_${new Date().getMonth()}_${new Date().getFullYear()}`;
+        if (school.length == 2) {
+            school = school[1];
+        }
+        var ItemREF = ref.child(`${path}/${date}/${firstName}_${lastname}`).set({
         firstName: firstName,
         lastName: lastname,
         school: school,
         class: Class,
         parentPhone: parentPhone,
+        parentName: parentName,
         id: ID,
         mobilePhone: mobilePhone
         });

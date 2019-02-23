@@ -39,11 +39,11 @@ input,select {
     border-radius: 0.2em;
     font-size: 1em;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    border: 0px solid #CDCDCD;
-    background-color:#D7D7D7;
-    padding: 0.6em 0;
+    border: 1px solid #CDCDCD;
+    background-color: #F7F7F7;
+    padding: 0.6em 0.5em 0.6em 0;
+    margin: 1em -.5em 1em;
     width: 100%;
-    margin: 0.5em 0;
 }
 /* select {
     border-radius: 0.2em;
@@ -75,6 +75,7 @@ input,select {
 .autocomplete {
     position: relative;
     display: inline-block;
+    width: auto;
 }
   
 .autocomplete-items {
@@ -86,7 +87,8 @@ input,select {
     /*position the autocomplete items to be the same width as the container:*/
     top: 100%;
     left: 0;
-    right: 0;
+    right: -1em;
+    width: 100%
 }
 
 .autocomplete-items div {
@@ -94,6 +96,10 @@ input,select {
     cursor: pointer;
     background-color: #fff; 
     border-bottom: 0.05em solid #d4d4d4; 
+    width: 100% !important;
+    flex: none !important;
+    float: right !important;
+    margin: 0 !important;
 }   
 
 .autocomplete-active {

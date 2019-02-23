@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+    <html>
+        <head>
+            <link rel="stylesheet"  type="text/Css" href="StyleRel.css"> 
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+            <meta charset="utf-8">
+            <title>טופס הרשמה למרכז</title>
+            <script src="./formValidating.js"></script>
+            <script src="./school-complete.js"></script>
+            <style>
+                    h1 {
+                        text-align: center;
+                    }
+                    
+                    /*form {
+                        text-align: center;
+                    }*/
+    
+                    div.error {
+                        color: red;
+                        font-weight: bold;
+                        direction: rtl;
+                    }
+            </style>
+        </head>
+
+        <body>
+
+                <div class="box-1">
+            
+                        <h1 style="text-align: center;"><span style="color: #ff6600;">!</span>נערים חדשים בבר? <span style="color: #ff6600;">איזה כיף</span></h1>
+                        <h3>!מהיום אפשר להיכנס לבר ולהירשם בשניות</h3>
+                        <h5>.רק כמה פרטים וסיימנו... אפשר לערוך את הפרטים תמיד</h5>
+        </div>
+   
+        <div id="error" class="error" hidden>           
+        </div>
+
+        <main>
+            <form method="POST" name="form" onsubmit="return formValidation();" action="./register" dir="rtl">
+            <section>
+                <div>
+                    <label >שם פרטי</label>
+                    <input type="text" name="firstName" >
+                </div>
+                <div>
+                    <label>שם משפחה</label> 
+                    <input type="text" name="lastName" id = "lastName">
+                </div>
+            </section>
+            <section>
+                <div>
+                <label>כיתה</label>
+                <select name="class">
+                    <option value="1">ז'</option>
+                    <option value="2">ח'</option>
+                    <option value="3">ט'</option>
+                    <option value="4">י'</option>
+                    <option value="5">יא'</option>
+                    <option value="6">יב'</option>
+                    </select>
+                </div>
+                <div>
+                            <label>בית ספר</label>
+                            <input type="text" name="school" id="school">
+            </div>
+            </section>
+<!--
+
+            <label  class="leftLine1">בית ספר <select style="width:400%;background-color:#DDDDDD;" name="school" size="10" >
+                    <option value="1">אילן רמון</option>
+                    <option value="2">יגאל אלון</option>
+                    <option value="3">בר לב</option>
+                    <option value="4">שז"ר</option>
+                    <option value="5">שרת</option>
+                </select>
+            </label>
+-->
+        <!-- <label class='leftLine1'>בית ספר<input type="text" name="school" id="school"></label> -->
+            <section>
+                <div>
+                    <label>טלפון נייד <span class="optional">לא חובה</span></label>
+                    <input type="tel" name="parentPhone" maxlength="7">
+                </div>
+                <div>
+                    <label>תעודת זהות <span class="optional">לא חובה</span></label> 
+                    <input type="number" name="ID" min="0"> 
+                </div>
+            </section>
+            <section>
+                <div>
+                    <label>שם הורה</label>
+                    <input type="text" name="parentName"> 
+                </div>
+                <div>        
+                    <label>טלפון הורה</label>
+                    <input type="text" type="tel" name="parentPhone" maxlength="7">
+                </div>
+            </section>
+
+    <section>
+        <input class="ToInfinityAndBeyond" type="submit" value="אל הבר ומעבר לו!" name="send"> 
+    </section>
+      <!-- <input class = "leftLine4"  type="reset" value="איפוס" name="reset"> -->
+    
+    </form>
+</main>
+    
+    </body>
+</html>    
+
+
